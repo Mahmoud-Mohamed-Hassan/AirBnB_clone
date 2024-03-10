@@ -8,14 +8,23 @@ import shlex
 from models.base_model import BaseModel
 from models import storage
 
+
 class HBNBCommand(cmd.Cmd):
     """
     HBNBCommand console class
     """
 
     prompt = "(hbnb) "
-    list_of_classes = ["BaseModel", "User",
-                       "City", "State", "Amenity", "Review", "Place"]
+    list_of_classes = [
+        "BaseModel",
+        "User",
+        "City",
+        "State",
+        "Amenity",
+        "Review",
+        "Place",
+    ]
+
     def do_quit(self, arg):
         """
         Quit command to exit the program.
@@ -73,6 +82,7 @@ class HBNBCommand(cmd.Cmd):
                     print("** no instance found **")
         else:
             print("** class name missing **")
+
     def do_destroy(self, linee):
         """Deletes an instance based on the class name and id"""
 
@@ -95,7 +105,7 @@ class HBNBCommand(cmd.Cmd):
                     print("** no instance found **")
         else:
             print("** class name missing **")
-            
+
     def do_all(self, linee):
         """Prints all string representation of all\
             instances based or not on the class name"""
@@ -111,7 +121,7 @@ class HBNBCommand(cmd.Cmd):
                 print(new_listt)
         else:
             print(new_listt)
-            
+
     def do_update(self, linee):
         """Updates an instance based on the class name and id"""
 
@@ -149,6 +159,7 @@ class HBNBCommand(cmd.Cmd):
                     print("** no instance found **")
         else:
             print("** class name missing **")
+
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
