@@ -48,17 +48,20 @@ class HBNBCommand(cmd.Cmd):
         print("quit command to exit the program")
 
     def do_create(self, arg):
-        """Creates a new instance"""
+        """
+        Create a new instance of BaseModel and save it to the JSON file.
+        Usage: create <class_name>
+        """
+        cmds = shlex.split(arg)
 
-        if arg:
-            if arg not in HBNBCommand.list_of_classes:
-                print("** class doesn't exist **")
-            else:
-                instance = eval(f"{arg}()")
-                instance.save()
-                print(instance.id)
-        else:
+        if len(cmds) == 0:
             print("** class name missing **")
+        elif cmds[0] not in self.valid_classes:
+            print("** class doesn't exist **")
+        else:
+            new_instance = eval(f"{cmds[0]}()")
+            storage.save()
+            print(new_instance.id)
 
     def do_show(self, linee):
         """Prints the string representation of \

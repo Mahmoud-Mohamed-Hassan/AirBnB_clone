@@ -7,7 +7,6 @@ import unittest
 from models.base_model import BaseModel
 
 
-
 class TestBasemodel(unittest.TestCase):
     """
     Unittest for BaseModel
@@ -34,6 +33,7 @@ class TestBasemodel(unittest.TestCase):
             os.rename("tmp.json", "file.json")
         except FileNotFoundError:
             pass
+
     def test_init(self):
         """
         Test for init
@@ -66,11 +66,10 @@ class TestBasemodel(unittest.TestCase):
 
         self.assertIsInstance(my_model_dict, dict)
 
-        self.assertEqual(my_model_dict["__class__"], 'BaseModel')
-        self.assertEqual(my_model_dict['id'], my_model.id)
-        self.assertEqual(my_model_dict['created_at'], my_model.created_at.isoformat())
+        self.assertEqual(my_model_dict["__class__"], "BaseModel")
+        self.assertEqual(my_model_dict["id"], my_model.id)
+        self.assertEqual(my_model_dict["created_at"], my_model.created_at.isoformat())
         self.assertEqual(my_model_dict["updated_at"], my_model.created_at.isoformat())
-
 
     def test_str(self):
         """
@@ -78,7 +77,7 @@ class TestBasemodel(unittest.TestCase):
         """
         my_model = BaseModel()
 
-        self.assertTrue(str(my_model).startswith('[BaseModel]'))
+        self.assertTrue(str(my_model).startswith("[BaseModel]"))
 
         self.assertIn(my_model.id, str(my_model))
 

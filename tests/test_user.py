@@ -172,10 +172,10 @@ class TestUser_to_dict(unittest.TestCase):
         us.id = "777777"
         us.created_at = us.updated_at = my_date
         tdict = {
-            'id': '777777',
-            '__class__': 'User',
-            'created_at': my_date.isoformat(),
-            'updated_at': my_date.isoformat(),
+            "id": "777777",
+            "__class__": "User",
+            "created_at": my_date.isoformat(),
+            "updated_at": my_date.isoformat(),
         }
         self.assertDictEqual(us.to_dict(), tdict)
 
